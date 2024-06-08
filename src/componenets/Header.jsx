@@ -9,7 +9,7 @@ const Header = () => {
         <img src={logo} alt="" />
       </div>
       <div className="header">
-          <h4>TELECALLING</h4>
+          <h4>TELECALL  MANAGEMENT</h4>
       </div>
     </div>
     </>

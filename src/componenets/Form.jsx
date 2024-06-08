@@ -5,7 +5,7 @@ const Form = () => {
     <>
       <div className="container-fluid">
         <div className="form-container">
-            <h4>Add Data</h4>
+            <h4 className='mt-4'>Upload Details</h4>
             <form>
                 <input className='form-control  m-1' placeholder='Name' type="text" />
                 <input className='form-control  m-1' placeholder='Phone' type="text" />

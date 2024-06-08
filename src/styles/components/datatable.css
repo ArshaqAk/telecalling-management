@@ -1,0 +1,20 @@
+.datatable-container{
+    /* border: 1px solid gray; */
+    /* padding: 3rem; */
+    width: 100%;
+    /* padding-inline: 0.6rem !important; */
+}
+.datatable-head{
+    color: rgb(10, 47, 160);
+}
+.datatable{
+    border: 1px solid rgba(0, 0, 0, 0.219);
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    width: 100%;
+}
+Link{
+    text-decoration: none !important;
+}
+.link{
+    text-decoration: none !important;
+}

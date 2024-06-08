@@ -11,7 +11,7 @@ const Remainder = () => {
               
               {/* Remainder box */}
               <div className="remainder-box">
-                <h4>Remainder</h4>
+                <h4>Reminder</h4>
               <MDBTable>
                 <MDBTableHead>
                   <tr className='table-head'>
