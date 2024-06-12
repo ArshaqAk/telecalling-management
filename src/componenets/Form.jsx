@@ -16,7 +16,6 @@ const Form = () => {
   //upload
   const handleUpload=async(e)=>{
     e.preventDefault();
-    console.log(formData)   
     if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.college.trim()) {
       alert('Please fill all the fields');
     }
@@ -28,7 +27,8 @@ const Form = () => {
           phone: formData.phone,
           email: formData.email,
           college: formData.college,
-          status: ''
+          status: 'Not called',
+          comment: ''
         });
         console.log("Document written with ID: ", docRef.id);
         // alert('Data uploaded successfully')

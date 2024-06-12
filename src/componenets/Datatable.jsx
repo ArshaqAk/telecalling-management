@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import '../styles/components/datatable.css';
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs ,doc, deleteDoc  } from "firebase/firestore";
 import { app } from '../Firebase/firebaseConfigure';
 import { Link } from 'react-router-dom';
+import { MdEdit ,MdDelete} from "react-icons/md";
 
 const Datatable = () => {
+  
   const db = getFirestore(app);
-
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -19,15 +20,27 @@ const Datatable = () => {
           ...doc.data()
         }));
         setTableData(data);
-        console.log(data); 
       } catch (error) {
         console.error("Error fetching documents: ", error);
       }
     };
   
     fetchData();
-  }, [db]); 
-  
+  },[db]); 
+
+  //Delete
+  const handleDelete = async (id) => {
+    const userConfirmed = window.confirm("Are you sure?");
+    if (userConfirmed) {
+      try {
+        await deleteDoc(doc(db, "students", id));
+        setTableData(prevData => prevData.filter(item => item.id !== id));
+      } catch (error) {
+        console.error("Error deleting document: ", error);
+      }
+    }
+  };
+    
   return (
     <>
       <div className="datatable-container">
@@ -38,15 +51,20 @@ const Datatable = () => {
               <th scope='col'>Phone</th>
               <th scope='col'>Email</th>
               <th scope='col'>Status</th>
+              <th scope='col'>Action</th>
             </tr>
           </MDBTableHead>
           <MDBTableBody>
             {tableData.map((item) => (
               <tr key={item.id}>
-                <td><Link to={`/profile/${item.id}`} className='link'>{item.name}</Link></td>
-                <td><Link to={`/profile/${item.id}`} className='link'>{item.phone}</Link></td>
-                <td><Link to={`/profile/${item.id}`} className='link'>{item.email}</Link></td>
-                <td><Link to={`/profile/${item.id}`} className='link'>{item.status}</Link></td>
+                <td> {item.name}</td>
+                <td> {item.phone}</td>
+                <td> {item.email}</td>
+                <td> {item.status}</td>
+                <td>
+                  <button onClick={()=>handleDelete(item.id)} className='btn btn-sm me-3'><MdDelete /></button>
+                  <Link to={`/profile/${item.id}`} className='link'><button className='btn btn-sm '><MdEdit /></button></Link>
+                </td>
               </tr>
             ))}
           </MDBTableBody>

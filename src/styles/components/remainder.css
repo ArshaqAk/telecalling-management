@@ -1,5 +1,5 @@
 .remainder-box{
-    border: 1px solid rgba(104, 101, 101, 0.425);
+    border: 1px solid rgba(13, 14, 14, 0.425);
     border-radius: 6px;
     margin-top: 2rem;
     margin-inline: 1rem;
@@ -7,8 +7,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
 }
 .table-head{
-    color: rgb(4, 4, 160);
+    color: rgb(27, 26, 25);
 }

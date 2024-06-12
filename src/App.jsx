@@ -9,12 +9,15 @@ function App() {
 
   return (
     <>
-      <Header/>
+   
+   <div className="app">
+   <Header/>
       <Routes>
         <Route path='/' element={<Login/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/profile/:id' element={<Profile/>}/>
       </Routes>
+    </div>
     </>
   )
 }

@@ -42,9 +42,9 @@ const Login = () => {
             <div className="col-lg-4 col-sm-12 login-colum">
                 <div className="login-box text-center">
                     <h1 className="header">Login</h1>
-                    <input onChange={(e)=>setLoginDetails({...loginDetails,email:e.target.value})} className='form-control my-1' type="email" placeholder='Email' />
+                    <input onChange={(e)=>setLoginDetails({...loginDetails,email:e.target.value})} className='form-control my-1 login_input_fleld' type="email" placeholder='Email' />
                     <div className="password_container">
-                    <input onChange={(e)=>setLoginDetails({...loginDetails,password:e.target.value})} className='form-control my-1' type={showpassword? "text" : "password"} placeholder='Password'/>
+                    <input onChange={(e)=>setLoginDetails({...loginDetails,password:e.target.value})} className='form-control my-1 login_input_fleld' type={showpassword? "text" : "password"} placeholder='Password'/>
                     <span className='eye' onClick={togglepassword}>{showpassword?<FaEye/> :<FaEyeSlash/>}</span>
                     </div>
                     <button className='btn btn-outline-dark w-25 my-3' onClick={handleLogin}>Login</button>
