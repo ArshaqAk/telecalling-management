@@ -1,13 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const counterSlice = createSlice({
-  name: 'studentData',
-  initialState: [],
+const studentSlice = createSlice({
+  name: 'studnts',
+  initialState:[],
   reducers: {
-    upload: (state) => state + id,
+    storedata: (state,action) => {
+      return action.payload;
+    },
   },
 })
 
 
-export const {upload}= counterSlice.actions
-export default counterSlice.reducer
+export const {storedata}= studentSlice.actions;
+export default studentSlice.reducer

@@ -8,6 +8,8 @@
     flex-direction: column;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
+    /* height: 4rem; */
+background-color: gree;
 }
 .table-head{
     color: rgb(27, 26, 25);

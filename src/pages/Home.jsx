@@ -3,7 +3,12 @@ import '../styles/pages/home.css'
 import Remainder from '../componenets/Remainder';
 import Form from '../componenets/Form';
 import Datatable from '../componenets/Datatable';
+import { useDispatch, useSelector } from 'react-redux';
+
+
 const Home = () => {
+const dispatch = useDispatch()
+
   return (
     <>
     <div className="container-fluid">
@@ -21,6 +26,7 @@ const Home = () => {
           <Datatable/>
         </div>
       </div>
+
     </div>
     </>
   )
