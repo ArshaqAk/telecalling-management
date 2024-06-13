@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getFirestore, collection, getDocs, updateDoc, doc } from "firebase/firestore";
 import { app } from '../Firebase/firebaseConfigure';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Profile = () => {
     const navigate = useNavigate();
@@ -14,7 +16,8 @@ const Profile = () => {
         college: '',
         status: '',
         id: '',
-        comment: ''
+        comment: '',
+        level: ''
     });
 
     useEffect(() => {
@@ -29,6 +32,7 @@ const Profile = () => {
                 setFormdata(student);
             } catch (error) {
                 console.error("Error fetching documents: ", error);
+                toast.error("Failed to fetch student data");
             }
         };
 
@@ -41,11 +45,15 @@ const Profile = () => {
         try {
             const studentDoc = doc(db, "students", id);
             await updateDoc(studentDoc, formData);
-            alert('Updated');
-            navigate('/home')
+            //toast setting
+            toast.success('Updated successfully');
+            setTimeout(function() { 
+                navigate('/home');
+              }, 1500);
 
         } catch (error) {
             console.error("Error updating document: ", error);
+            toast.error("Failed to update student data");
         }
     };
 
@@ -75,16 +83,24 @@ const Profile = () => {
                         <div className="select-box text-start d-flex align-items-center" style={{ width: '100%' }}>
                             <label htmlFor="status">Status:</label>
                             <select id="status" onChange={(e) => setFormdata({ ...formData, status: e.target.value })} value={formData.status} className='my-1 form-select w-75 ms-auto'>
-                                <option disabled value="">Select</option>
+                                <option value="not called">Not called</option>
                                 <option value="call back">Call back</option>
                                 <option value="call attended">Call Attended</option>
                                 <option value="switch off">Switch off</option>
                                 <option value="not answered">Not Answered</option>
                             </select>
                         </div>
+                        <div className="select-box text-start d-flex align-items-center" style={{ width: '100%' }}>
+                            <label htmlFor="level">Level:</label>
+                            <select id="level" onChange={(e) => setFormdata({ ...formData, level: e.target.value })} value={formData.level} className='my-1 form-select w-75 ms-auto'>
+                                <option value="Lv 1">Lv 1</option>
+                                <option value="Lv 2">Lv 2</option>
+                                <option value="Lv 3">Lv 3</option>
+                            </select>
+                        </div>
                         <div className="comment_input d-flex align-items-center w-100">
-                            <label htmlFor="comment">Comment:</label>
-                            <input id="comment" onChange={(e) => setFormdata({ ...formData, comment: e.target.value })} value={formData.comment} className='form-control m-1 w-75 ms-auto' placeholder='Comment' type="text" />
+                            <label htmlFor="comment">Comments:</label>
+                            <input id="comment" onChange={(e) => setFormdata({ ...formData, comment: e.target.value })} value={formData.comment} className='form-control m-1 w-75 ms-auto' placeholder='Comments' type="text" />
                         </div>
                         <div className="button_box">
                             <Link to={'/home'}>
@@ -96,7 +112,20 @@ const Profile = () => {
                 </div>
                 <div className="col-lg-3 col-sm-12"></div>
             </div>
-        </div>
+            <ToastContainer
+                position="bottom-right"
+                autoClose={1000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss={false}
+                draggable={false}
+                pauseOnHover={false}
+                theme="dark"
+                transition: Bounce
+                />  
+      </div>
     );
 }
 

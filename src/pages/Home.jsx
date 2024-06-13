@@ -7,13 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 
 const Home = () => {
-const dispatch = useDispatch()
 
   return (
     <>
     <div className="container-fluid">
       <div className="row">
-        <div className="col-lg-3">
+        <div className="col-lg-3 reminder-column">
             <Remainder/>
         </div>
         <div className="col-lg-9">

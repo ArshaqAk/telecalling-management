@@ -3,6 +3,9 @@ import { collection, addDoc } from "firebase/firestore";
 import '../styles/components/form.css'
 import { getFirestore } from "firebase/firestore";
 import { app } from '../Firebase/firebaseConfigure';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 const Form = () => {
   const db = getFirestore(app);
 
@@ -16,7 +19,7 @@ const Form = () => {
   //upload
   const handleUpload=async(e)=>{
     e.preventDefault();
-    if (!formData.name.trim() || !formData.phone.trim() || !formData.email.trim() || !formData.college.trim()) {
+    if (!formData.name.trim() || !formData.phone.trim() ) {
       alert('Please fill all the fields');
     }
         
@@ -27,11 +30,13 @@ const Form = () => {
           phone: formData.phone,
           email: formData.email,
           college: formData.college,
-          status: 'Not called',
-          comment: ''
+          status: 'not called',
+          comment: '',
+          level: 'Lv 1'
         });
         console.log("Document written with ID: ", docRef.id);
         // alert('Data uploaded successfully')
+        toast.success('student added')
         setFormdata({
           name:'',
           phone:'',
@@ -57,6 +62,19 @@ const Form = () => {
                 <button onClick={handleUpload} className='btn btn-sm btn-outline-secondary mt-2 '>upload</button>
             </form>
         </div>
+        <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        transition: Bounce
+        />
       </div>
     </>
   )

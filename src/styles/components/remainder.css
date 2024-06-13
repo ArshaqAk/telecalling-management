@@ -1,16 +1,49 @@
-.remainder-box{
+.reminder-container {
+    width: 100%;
+    height: auto;
+}
+
+.remainder-box {
+    height: 19.3rem;
+    overflow-y: scroll;
     border: 1px solid rgba(13, 14, 14, 0.425);
     border-radius: 6px;
     margin-top: 2rem;
     margin-inline: 1rem;
-    padding: 0.6rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 24px;
-    /* height: 4rem; */
-background-color: gree;
 }
-.table-head{
-    color: rgb(27, 26, 25);
+.table-head {
+    color: rgb(70, 5, 145);
 }
+
+
+/* scroll effect */
+.remainder-box::-webkit-scrollbar {
+    width: 3px ;
+}
+
+.remainder-box::-webkit-scrollbar-track {
+    background: #fff;
+    border-radius: 55px;
+}
+
+.remainder-box::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 5px;
+}
+
+.remainder-box::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+}
+
+
+ .remainder-box {
+    scrollbar-width: thin;
+    scrollbar-color: #88888846 #fffafa; 
+}  
+
+

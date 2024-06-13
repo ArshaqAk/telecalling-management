@@ -12,12 +12,8 @@ const Remainder = () => {
 
   return (
     <>
-     <div className="container-fluid">
-        <div className="row">
-            <div className="col">
-              
-              {/* Remainder box */}
-              <div className="remainder-box">
+      <div className="reminder-container">
+      <div className="remainder-box">
                 <h4>Reminder</h4>
               <MDBTable>
                 <MDBTableHead>
@@ -27,7 +23,8 @@ const Remainder = () => {
                   </tr>
                 </MDBTableHead>
                 {
-                  reminder_data.map((item,index)=>(
+                  reminder_data.filter(item => item.status == 'call back')
+                  .map((item,index)=>(
                     <MDBTableBody>
                     <tr>
                       <th scope='row'>{item.name}</th>
@@ -40,10 +37,8 @@ const Remainder = () => {
               </MDBTable>
 
               </div>
-            </div>
-        </div>
-      </div>
 
+      </div>
     </>
   )
 }
