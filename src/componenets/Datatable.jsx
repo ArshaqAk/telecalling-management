@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import '../styles/components/datatable.css';
 import { getFirestore, collection, onSnapshot, doc, deleteDoc } from "firebase/firestore";
@@ -12,6 +12,7 @@ const Datatable = () => {
   const dispatch = useDispatch();
   const db = getFirestore(app);
   const tableData = useSelector((state) => state.students);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, "students"), (querySnapshot) => {
@@ -24,7 +25,6 @@ const Datatable = () => {
       console.error("Error fetching documents: ", error);
     });
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, [db, dispatch]);
 
@@ -40,8 +40,21 @@ const Datatable = () => {
     }
   };
 
+  const filteredData = tableData.filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
-    <div className="datatable-container">
+    <div className="datatable-container ">
+      <div className="search_container  m-1" >
+        <input
+          className='form-control w-25  '
+          type="text"
+          placeholder='Search by name'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
       <MDBTable className="datatable">
         <MDBTableHead>
           <tr className="datatable-head">
@@ -53,7 +66,7 @@ const Datatable = () => {
           </tr>
         </MDBTableHead>
         <MDBTableBody>
-          {tableData.map((item) => (
+          {filteredData.map((item) => (
             <tr key={item.id}>
               <td>{item.name}</td>
               <td>{item.phone}</td>

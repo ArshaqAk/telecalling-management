@@ -26,9 +26,10 @@ const Remainder = () => {
                   reminder_data.filter(item => item.status == 'call back')
                   .map((item,index)=>(
                     <MDBTableBody>
+                      
                     <tr>
                       <th scope='row'>{item.name}</th>
-                      <td>{item.status}</td>
+                      <td className=''>{item.status}</td>
                     </tr>
                   </MDBTableBody>
   
