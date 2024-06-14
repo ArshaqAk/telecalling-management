@@ -11,7 +11,7 @@ import { storedata } from '../Redux/studentsSlice';
 const Datatable = () => {
   const dispatch = useDispatch();
   const db = getFirestore(app);
-  const tableData = useSelector((state) => state.students);
+  const tableData = useSelector((state) => state.students.studentsData); // Ensure this matches the state structure
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
@@ -28,7 +28,6 @@ const Datatable = () => {
     return () => unsubscribe();
   }, [db, dispatch]);
 
-  // Delete
   const handleDelete = async (id) => {
     const userConfirmed = window.confirm("Are you sure?");
     if (userConfirmed) {
@@ -41,16 +40,17 @@ const Datatable = () => {
   };
 
   const filteredData = tableData.filter(item =>
-    item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.status.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
+  
   return (
-    <div className="datatable-container ">
-      <div className="search_container  m-1" >
+    <div className="datatable-container">
+      <div className="search_container m-1">
         <input
-          className='form-control w-25  '
+          className='form-control w-25'
           type="text"
-          placeholder='Search by name'
+          placeholder='Search'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

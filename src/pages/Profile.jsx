@@ -17,8 +17,10 @@ const Profile = () => {
         status: '',
         id: '',
         comment: '',
-        level: ''
+        level: '',
+        date:''
     });
+       console.log(formData);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -90,6 +92,15 @@ const Profile = () => {
                                 <option value="not answered">Not Answered</option>
                             </select>
                         </div>
+                            {/* date */}
+                            {
+                                formData.status == 'call back'  &&
+                                <div className="name_input d-flex w-100 align-items-center">
+                                <label htmlFor="name">Date:</label>
+                                <input onChange={(e)=>setFormdata({...formData,date:e.target.value})}  type="date"  className='form-control m-1 w-75 ms-auto'/>
+                                </div>
+    
+                            }
                         <div className="select-box text-start d-flex align-items-center" style={{ width: '100%' }}>
                             <label htmlFor="level">Level:</label>
                             <select id="level" onChange={(e) => setFormdata({ ...formData, level: e.target.value })} value={formData.level} className='my-1 form-select w-75 ms-auto'>
@@ -97,6 +108,7 @@ const Profile = () => {
                                 <option value="Lv 2">Lv 2</option>
                                 <option value="Lv 3">Lv 3</option>
                             </select>
+
                         </div>
                         <div className="comment_input d-flex align-items-center w-100">
                             <label htmlFor="comment">Comments:</label>

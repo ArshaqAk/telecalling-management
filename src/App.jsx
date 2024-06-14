@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import Home from './pages/Home'
 import Header from './componenets/Header'
 import Profile from './pages/Profile'
+import PrivateRoutes from './RoutesLayout/PrivateRoutes'
 
 function App() {
 
@@ -13,9 +14,11 @@ function App() {
    <div className="app">
    <Header/>
       <Routes>
-        <Route path='/' element={<Login/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/profile/:id' element={<Profile/>}/>
+        <Route element={<PrivateRoutes/>}>
+            <Route path='/home' element={<Home/>}/>
+            <Route path='/profile/:id' element={<Profile/>}/>
+        </Route>
+            <Route path='/' element={<Login/>}/>
       </Routes>
     </div>
     </>

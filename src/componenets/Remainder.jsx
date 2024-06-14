@@ -4,11 +4,16 @@ import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { useSelector } from 'react-redux';
 
 const Remainder = () => {
-  // useEffect(()=>{
-  //   const fetchReminder = useSelector()
-  // })
-  const reminder_data =useSelector((state)=>state.students)
-  console.log(reminder_data);
+  const reminder_data =useSelector((state)=>state.students.studentsData)
+
+  //Date
+    let today = new Date();
+    let year = today.getFullYear();
+    let month = String(today.getMonth() + 1).padStart(2, '0'); 
+    let day = String(today.getDate()).padStart(2, '0');
+    let formattedDate = `${year}-${month}-${day}`;
+    // console.log(formattedDate)
+
 
   return (
     <>
@@ -23,9 +28,9 @@ const Remainder = () => {
                   </tr>
                 </MDBTableHead>
                 {
-                  reminder_data.filter(item => item.status == 'call back')
+                  reminder_data.filter(item => item.status == 'call back' && item.date == formattedDate)
                   .map((item,index)=>(
-                    <MDBTableBody>
+                    <MDBTableBody key={index}>
                       
                     <tr>
                       <th scope='row'>{item.name}</th>

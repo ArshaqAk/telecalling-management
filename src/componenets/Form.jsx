@@ -32,7 +32,8 @@ const Form = () => {
           college: formData.college,
           status: 'not called',
           comment: '',
-          level: 'Lv 1'
+          level: 'Lv 1',
+          date:''
         });
         console.log("Document written with ID: ", docRef.id);
         // alert('Data uploaded successfully')
