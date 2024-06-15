@@ -68,11 +68,11 @@ const Datatable = () => {
         <MDBTableBody>
           {filteredData.map((item) => (
             <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.phone}</td>
-              <td>{item.email}</td>
-              <td>{item.status}</td>
-              <td>
+              <td data-label="Name">{item.name}</td>
+              <td data-label="Phone">{item.phone}</td>
+              <td data-label="Email">{item.email}</td>
+              <td data-label="Status">{item.status}</td>
+              <td data-label="Action">
                 <button onClick={() => handleDelete(item.id)} className="btn btn-sm me-3"><MdDelete /></button>
                 <Link to={`/profile/${item.id}`} className="link"><button className="btn btn-sm"><MdEdit /></button></Link>
               </td>

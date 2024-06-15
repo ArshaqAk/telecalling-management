@@ -3,13 +3,16 @@ import '../styles/pages/home.css'
 import Remainder from '../componenets/Remainder';
 import Form from '../componenets/Form';
 import Datatable from '../componenets/Datatable';
+import Header from '../componenets/Header';
 
 
 const Home = () => {
 
   return (
     <>
+    <Header/>
     <div className="container-fluid">
+      <div className="home-page-container">
       <div className="row">
         <div className="col-lg-3 reminder-column">
             <Remainder/>
@@ -25,6 +28,8 @@ const Home = () => {
         </div>
       </div>
 
+
+      </div>
     </div>
     </>
   )

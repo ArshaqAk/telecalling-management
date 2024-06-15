@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Header from './componenets/Header'
 import Profile from './pages/Profile'
 import PrivateRoutes from './RoutesLayout/PrivateRoutes'
+import Pagenotfound from './pages/Pagenotfound'
 
 function App() {
 
@@ -12,11 +13,12 @@ function App() {
     <>
    
    <div className="app">
-   <Header/>
+   {/* <Header/> */}
       <Routes>
         <Route element={<PrivateRoutes/>}>
             <Route path='/home' element={<Home/>}/>
             <Route path='/profile/:id' element={<Profile/>}/>
+            <Route path='*' element={<Pagenotfound/>}/>
         </Route>
             <Route path='/' element={<Login/>}/>
       </Routes>

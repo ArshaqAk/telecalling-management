@@ -20,7 +20,7 @@ const Profile = () => {
         level: '',
         date:''
     });
-       console.log(formData);
+    //    console.log(formData);
 
     useEffect(() => {
         const fetchData = async () => {

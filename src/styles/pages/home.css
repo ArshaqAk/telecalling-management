@@ -3,6 +3,14 @@
     height: 100vh; */
     overflow-x: hidden;
 }
+.home-page-container{
+    background-image: url('../../assets/home-background.jpg');
+    background-position: top;
+    background-repeat:repeat-y; 
+    padding-inline: 1rem;
+    
+}
+
 .reminder-column{
     height: 21.2rem;
 }

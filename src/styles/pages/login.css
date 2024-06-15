@@ -1,59 +1,83 @@
-.container-fluid{
+.container-fluid {
     width: 100%;
-    /* height: 100vh; */
-    .row{
-        min-height: 60vh;
-        .login-colum{
+    margin: 0;
+    padding: 0;
+}
+
+.login-page-container {
+    padding-inline: 1rem;
+    margin-top: -2.9rem;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../assets/login-background.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .row {
+        min-height: 55vh;
+
+        .login-colum {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            .login-box{
-                .header{
-                    color: rgb(17, 29, 66);
-                    margin: 1rem;
-                    font-family: serif;
-                }
+
+            .header {
+                color: rgb(12, 56, 189);
+                margin-top: 1.5rem;
+                font-family: s;
+                font-weight: 700;
+            }
+
+            .head_paragraph {
+                font-weight: 100;
+            }
+
+            .login-box {
                 width: 100%;
                 border: 1px rgba(7, 7, 85, 0.233) solid;
                 padding-inline: 2rem;
-                margin-top: 3rem;
+                padding-block: 1rem;
+                margin-top: 1.5rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
                 border-radius: 10px;
-                .login_input_fleld{
-                    border: none;
-                    border-radius: 0;
-                    border-bottom: 1px ridge  rgba(7, 7, 85, 0.233) ;
-                    background-color: transparent;
-                }
-                .login_input_fleld:focus{
-                    outline:none ;
-                    border: none;
-                    border-bottom: 1px ridge  rgba(7, 7, 85, 0.233) ;
-
-                    box-shadow: none;
-                }
-
-                .password_container{
-                    display: flex;
-                    width: 100%;
-                    align-items: center;
-                    position: relative;
-                    input{
-                        width: 100%;
-                    }
-                    .eye{
-                        position: absolute;
-                        right: 1rem;
-                        cursor: pointer;
-                    }
-                }
-
+                background-color: rgba(255, 255, 255, 0.315); /* Added background color */
+                z-index: 10; /* Added z-index */
+                position: relative; /* Ensure it respects z-index */
             }
-    
+
+            .login_input_fleld {
+                border-radius: 7px;
+                border: 1px solid black;
+                height: 3rem;
+                background-color: transparent;
+            }
+
+            .password_container {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                position: relative;
+
+                input {
+                    width: 100%;
+                }
+
+                .eye {
+                    position: absolute;
+                    right: 1rem;
+                    cursor: pointer;
+                }
+            }
+
+            .login-img {
+                width: 10rem;
+                height: 10rem;
+            }
         }
     }
-
 }

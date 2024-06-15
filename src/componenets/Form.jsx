@@ -35,7 +35,7 @@ const Form = () => {
           level: 'Lv 1',
           date:''
         });
-        console.log("Document written with ID: ", docRef.id);
+        // console.log("Document written with ID: ", docRef.id);
         // alert('Data uploaded successfully')
         toast.success('student added')
         setFormdata({
