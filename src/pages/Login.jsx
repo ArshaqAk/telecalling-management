@@ -58,16 +58,16 @@ const Login = () => {
               
               <div className="col-lg-5 col-sm-12  d-flex flex-column align-items-center justify-content-center">
                 <img className='login-img ' src={login_img} alt="" />
-                <span className='mt-1 mb-4 w-100  d-flex justify-content-center'><LoginGoogle/></span>
+                <span className='mt-2 mb-5  w-100  d-flex justify-content-center'><LoginGoogle/></span>
               </div>
               <div className="col-lg-7 col-sm-12  d-flex flex-column align-items-center justify-content-center">
-                <input onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} className='form-control my-1 login_input_fleld ' type="email" placeholder='Email' />
+                <input onChange={(e) => setLoginDetails({ ...loginDetails, email: e.target.value })} className='form-control mb-1 login_input_fleld ' type="email" placeholder='Email' />
                 <div className="password_container">
                 <input onChange={(e) => setLoginDetails({ ...loginDetails, password: e.target.value })} className='form-control my-1 login_input_fleld' type={showpassword ? "text" : "password"} placeholder='Password' />
                   <span className='eye' onClick={togglepassword}>{showpassword ? <FaEye /> : <FaEyeSlash />}</span>
                 </div>
                 <div className="login_buttons d-flex flex-column align-items-center justify-content-center  w-100 mb-1">
-                  <button className='btn btn-outline-dark w-50 btn-lg mt-3 border border-1 border-dark btn-block ms-2 d-flex align-items-center justify-content-center' onClick={handleLogin}><span className='me-1'>Login</span> <FiLogIn /></button>
+                  <button className='btn btn-outline-dark w-50 btn-lg mt-2 border border-1 border-dark btn-block ms-2 d-flex align-items-center justify-content-center' onClick={handleLogin}><span className='me-1'>Login</span> <FiLogIn /></button>
                 </div>
               </div>
             </div>
