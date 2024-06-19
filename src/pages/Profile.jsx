@@ -97,7 +97,7 @@ const Profile = () => {
                                 formData.status == 'call back'  &&
                                 <div className="name_input d-flex w-100 align-items-center">
                                 <label htmlFor="name">Date:</label>
-                                <input onChange={(e)=>setFormdata({...formData,date:e.target.value})}  type="date"  className='form-control m-1 w-75 ms-auto'/>
+                                <input onChange={(e)=>setFormdata({...formData,date:e.target.value})}  value={formData.date}  type="date"  className='form-control m-1 w-75 ms-auto'/>
                                 </div>
     
                             }
@@ -126,7 +126,7 @@ const Profile = () => {
             </div>
             <ToastContainer
                 position="bottom-right"
-                autoClose={1000}
+                autoClose={700}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick

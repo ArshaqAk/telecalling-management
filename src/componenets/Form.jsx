@@ -20,7 +20,7 @@ const Form = () => {
   const handleUpload=async(e)=>{
     e.preventDefault();
     if (!formData.name.trim() || !formData.phone.trim() ) {
-      alert('Please fill all the fields');
+      alert('Please fill the fields');
     }
         
     else{
@@ -56,7 +56,7 @@ const Form = () => {
         <div className="form-container">
             <h4 className='mt-4'>Upload Details</h4>
             <form>
-                <input onChange={(e)=>setFormdata({...formData,name:e.target.value})} value={formData.name} className='form-control  m-1' placeholder='Name' type="text" />
+                <input formNoValidate onChange={(e)=>setFormdata({...formData,name:e.target.value})} value={formData.name} className='form-control  m-1' placeholder='Name' type="text" />
                 <input onChange={(e)=>setFormdata({...formData,phone:e.target.value})} value={formData.phone} className='form-control  m-1' placeholder='Phone' type="text" />
                 <input onChange={(e)=>setFormdata({...formData,email:e.target.value})} value={formData.email} className='form-control  m-1' placeholder='Email' type="email" />
                 <input onChange={(e)=>setFormdata({...formData,college:e.target.value})} value={formData.college} className='form-control  m-1' placeholder='College' type="text" />
