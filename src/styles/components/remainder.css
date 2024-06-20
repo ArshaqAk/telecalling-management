@@ -45,5 +45,11 @@
     scrollbar-width: thin;
     scrollbar-color: #88888846 #fffafa; 
 }  
+.link{
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+
+}
 
 

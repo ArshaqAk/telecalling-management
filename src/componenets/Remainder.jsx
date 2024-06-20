@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import '../styles/components/remainder.css'
 import { MDBTable, MDBTableHead, MDBTableBody } from 'mdb-react-ui-kit';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Remainder = () => {
   const reminder_data =useSelector((state)=>state.students.studentsData)
@@ -31,11 +32,12 @@ const Remainder = () => {
                   reminder_data.filter(item => item.status == 'call back' && item.date == formattedDate)
                   .map((item,index)=>(
                     <MDBTableBody key={index}>
-                      
+           
                     <tr>
-                      <th scope='row'>{item.name}</th>
-                      <td className=''>{item.status}</td>
+                       <th scope='row'><Link to={`/profile/${item.id}`} className='link'>{item.name}</Link></th>
+                      <td className='mt-5'><Link to={`/profile/${item.id}`} className='link'>{item.status}</Link></td>
                     </tr>
+                  
                   </MDBTableBody>
   
                   ))
