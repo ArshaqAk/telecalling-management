@@ -11,7 +11,7 @@ import { storedata } from '../Redux/studentsSlice';
 const Datatable = () => {
   const dispatch = useDispatch();
   const db = getFirestore(app);
-  const tableData = useSelector((state) => state.students.studentsData); // Ensure this matches the state structure
+  const tableData = useSelector((state) => state.students.studentsData); 
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {

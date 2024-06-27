@@ -32,8 +32,37 @@ const Form = () => {
           college: formData.college,
           status: 'not called',
           comment: '',
-          level: 'Lv 1',
-          date:''
+          current_level:'Lv 1',
+          level_details: [
+                { 
+                  stage: 'Lv 1',
+                  person:{
+                    shena:false,
+                    shameem:false,
+                    aniq:false
+                  },
+                  date:''
+                },
+                { 
+                  stage: 'Lv 2',
+                  person:{
+                    shena:false,
+                    shameem:false,
+                    aniq:false
+                  },
+                  date:''
+                },
+                { 
+                  stage: 'Lv 3',
+                  person:{
+                    shena:false,
+                    shameem:false,
+                    aniq:false
+                  },
+                  date:''
+                },
+        ],
+          callback_date:''
         });
         // console.log("Document written with ID: ", docRef.id);
         // alert('Data uploaded successfully')
